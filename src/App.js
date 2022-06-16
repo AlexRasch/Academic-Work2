@@ -133,7 +133,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/aprikos.jpg"
               name="Aprikos"
               price={20}
               handleAdd={addItem}
@@ -142,7 +142,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/bannan.jpg"
               name="Banan"
               price={21}
               handleAdd={addItem}
@@ -151,7 +151,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/carambola.jpg"
               name="Carambola"
               price={22}
               handleAdd={addItem}
@@ -160,7 +160,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/cherimoya.jpg"
               name="Cherimoya"
               price={23}
               handleAdd={addItem}
@@ -169,7 +169,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/citron.jpg"
               name="Citron"
               price={24}
               handleAdd={addItem}
@@ -178,7 +178,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/clementin.jpg"
               name="Clementin"
               price={25}
               handleAdd={addItem}
@@ -187,7 +187,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/granatapple.jpg"
               name="Granatäpple"
               price={26}
               handleAdd={addItem}
@@ -205,7 +205,7 @@ function App() {
           </div>
           <div className="card mb-5">
             <Item
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              image="assets/img/apple.jpg"
               name="Äpple"
               price={27}
               handleAdd={addItem}

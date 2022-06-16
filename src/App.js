@@ -5,28 +5,18 @@ import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import { ShoppingList } from "./components/ShoppingList";
 import { Header, NavBar } from "./components/Header";
 import { Item } from "./components/Item";
 
-function FooterBackToTop() {
-  return (
-    <div>
-      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-    </div>
-  )
-}
-
-
-
 function App() {
 
   const [shoppingList, setShoppingList] = useState([]);
 
+  // Create a array of objects / items
   const [items, setItems] = useState([
     {
       image: 'assets/img/ananas.jpg',
@@ -101,13 +91,22 @@ function App() {
 
     // ToDo improve logic
 
-    //console.log("Remove: " + item.name);
-    var array = [...shoppingList]; // make a separate copy of the array
-    //console.log(array, item)
-    let idToRemove = array.filter(i => i.name === item.name).slice(-1)[0].id
-    //console.log(idToRemove)
+    // make a separate copy of the array
+    var array = [...shoppingList];
+
+    // Find last item of item type
+    let idToRemove = array.filter(i => i.name === item.name).slice(-1)[0];
+    idToRemove = idToRemove ? idToRemove.id : null;
+
+    // If not found, abort
+    if (idToRemove == null) {
+      return;
+    }
+
+    // Check if it exists
     var index = array.indexOf(array.filter(i => i.id === idToRemove)[0])
-    //console.log(index)
+
+    // If found create a new array without
     if (index !== -1) {
       array.splice(index, 1);
       setShoppingList(array);
@@ -160,7 +159,7 @@ function App() {
               </div>
             }/>
           </Routes>
-          <a href="#Top"><button type="button" className="btn btn-primary">Top</button></a>
+          <a href="#Top"><button type="button" className="btn btn-primary mt-5 mb-2">Top</button></a>
         </div>
       </div>
     </Router>

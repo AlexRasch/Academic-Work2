@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 function ShoppingList(props) {
 
@@ -7,19 +7,49 @@ function ShoppingList(props) {
 
   //ToDo change to local storage
   const shoppingList2 = props.list.map((x) => <li className="list-group-item" key={x.id}>{x.name} {x.price}</li>);
-  return <ul className="list-group"> <li className="list-group-item active">Shop</li>{shoppingList2}</ul>;
+
+  // Calculate total price
+
+  const shoppingListPrice = shoppingList2.map((x) => x.price);
+  return <ul className="list-group"> <li className="list-group-item active">Shop</li>{shoppingList2} <li className="list-group-item">Pris: </li></ul>;
+}
+
+
+function Header() {
+  return (
+    <div>
+      <div className="p-5 bg-success text-white text-center">
+        <h1>Fruit Shopper 2000</h1>
+        <p>Maecenas dignissim in dui eu imperdiet</p>
+      </div>
+      <nav classID="" className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center sticky-top">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">Home</a>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link" href="#"><button type="button" className="btn btn-light">Cart</button></a>
+            </li>
+          </ul>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link" href="#"><button type="button" className="btn btn-danger">Check Out</button></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>)
 }
 
 
 function Item(props) {
   return (
     <div className="card-body item">
-      <img className="card-img-top mx-auto d-block" src={props.image} width="100" alt=""></img>
+      <img className="card-img-top mx-auto d-block" loading="lazy" src={props.image} width="100" alt=""></img>
       <h3 className="card-title">{props.name}</h3>
       <p className="card-text">
         {props.name} <b>Pris:</b> <i>{props.price}</i>
       </p>
-      <button type="button"  className="card-link btn btn-primary addButton" onClick={() => props.handleAdd(props)}>
+      <button type="button" className="card-link btn btn-primary addButton" onClick={() => props.handleAdd(props)}>
         Add item
       </button>
       <button type="button" className="card-link btn btn-warning removeButton" onClick={() => props.handleRemove(props)}>
@@ -29,8 +59,21 @@ function Item(props) {
   );
 }
 
+function FooterBackToTop(){
+  return (
+    <div>
+          <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    </div>
+
+
+  )
+
+}
+
+
+
 function App() {
-  
+
   const [shoppingList, setShoppingList] = useState([]);
   function removeItem(item) {
 
@@ -49,130 +92,128 @@ function App() {
 
   }
   function addItem(item) {
-  //ToDo improve generation of keys
-  //console.log("Add: " + item);
-   setShoppingList((prevState) =>[
-    ...prevState,
-    {id: prevState.length + 1, name: item.name, price: item.price}
-    //item.name + " " + item.price
-  ]);
+    //ToDo improve generation of keys
+    //console.log("Add: " + item);
+    setShoppingList((prevState) => [
+      ...prevState,
+      { id: prevState.length + 1, name: item.name, price: item.price }
+      //item.name + " " + item.price
+    ]);
   }
   return (
     <div className="App">
-    <div className="row">
-    <div className="col-sm-12 col-md-6 mt-5 pt-5">
-      <ShoppingList list = {shoppingList} />
-    </div>
-    <div className="col-sm-12 col-md-6 mt-5 pt-5">
-      
-    <div className="card mb-5">
-      <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Banana"
-        price={30}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-        
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-    <div className="card mb-5">
-    <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="Mango"
-        price={300}
-        handleAdd = {addItem}
-        handleRemove = {removeItem}
-      />
-    </div>
-      {/* <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="banana"
-        price={30}
-      />
-      <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="banana"
-        price={30}
-      />
-      <Item
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
-        name="potatis"
-        price={30}
-      /> */}
+      <Header />
+      <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-12 col-md-6 mt-5 pt-5">
+          <ShoppingList list={shoppingList} />
+        </div>
+        <div className="col-sm-12 col-md-6 mt-5 pt-5">
+
+          <div className="card mb-5">
+            <Item
+              image="assets/img/ananas.jpg"
+              name="Ananas"
+              price={10}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="assets/img/apelsin.jpg"
+              name="Apelsin"
+              price={11}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Aprikos"
+              price={20}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Banan"
+              price={21}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Carambola"
+              price={22}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Cherimoya"
+              price={23}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Citron"
+              price={24}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Clementin"
+              price={25}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Granatäpple"
+              price={26}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="assets/img/grapefrukt.jpg"
+              name="Grapefrukt"
+              price={27}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+          </div>
+          <div className="card mb-5">
+            <Item
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+              name="Äpple"
+              price={27}
+              handleAdd={addItem}
+              handleRemove={removeItem}
+            />
+            </div>
+          </div>
+
+        </div>
       </div>
-      </div>
+    
     </div>
   );
 }

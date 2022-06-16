@@ -18,29 +18,40 @@ function ShoppingList(props) {
 }
 
 
+function NavBar(){
+
+return (
+  <div className="sticky-top">
+  <nav classID="" className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+    <div className="container-fluid">
+      <a className="navbar-brand" href="#">Home</a>
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a className="nav-link" href="#"><button type="button" className="btn btn-light">Cart</button></a>
+        </li>
+      </ul>
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a className="nav-link" href="#"><button type="button" className="btn btn-danger">Check Out</button></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+)
+
+
+}
+
+
 function Header() {
   return (
-    <div>
+      
       <div className="p-5 bg-success text-white text-center">
         <h1>Fruit Shopper 2000</h1>
         <p>Maecenas dignissim in dui eu imperdiet</p>
       </div>
-      <nav classID="" className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center sticky-top">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">Home</a>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link" href="#"><button type="button" className="btn btn-light">Cart</button></a>
-            </li>
-          </ul>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link" href="#"><button type="button" className="btn btn-danger">Check Out</button></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>)
+    )
 }
 
 
@@ -106,6 +117,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <NavBar />
       <div className="container-fluid">
       <div className="row">
         <div className="col-sm-12 col-md-6 mt-5 pt-5">

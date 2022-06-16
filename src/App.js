@@ -4,7 +4,7 @@ import React, { useState } from "react";
 // Import "routes"
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
@@ -88,6 +88,7 @@ function App() {
 
   const itemsElement = items.map(item =>
     <Item
+      key={item.name}
       image={item.image}
       name={item.name}
       price={item.price}
@@ -123,23 +124,45 @@ function App() {
     ]);
   }
   return (
-    <div className="App">
-      <Header />
-      <NavBar />
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-12 col-md-6 mt-5 pt-5">
-            <ShoppingList list={shoppingList} />
-          </div>
-          <div className="col-sm-12 col-md-6 mt-5 pt-5">
+    <Router>
+      <div className="App">
+        <Header />
+        <NavBar />
+        <div className="container-fluid">
+          <Routes>
 
-            {itemsElement}
+             {/* Index  / Дом */}
+            <Route path="/" element={
+              <div className="row">
+                <div className="col-sm-12 col-md-12 mt-5 pt-5">
+                  {/* Output items/fruits */}
+                  {itemsElement}
+                </div>
+              </div>
+            }/>
 
+            {/* Cart  / Корзина покупателя */}
+            <Route path="/cart" element={
+              <div className="row">
+                <div className="col-sm-12 col-md-12 mt-5 pt-5">
+                  <ShoppingList list={shoppingList} />
+                </div>
+              </div>
+            }/>
 
-          </div>
+            {/* Checkout */}
+            <Route path="/checkout" element={
+              <div className="row">
+                <div className="col-sm-12 col-md-12 mt-5 pt-5">
+                  
+                </div>
+              </div>
+            }/>
+
+          </Routes>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

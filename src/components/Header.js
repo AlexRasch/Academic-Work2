@@ -1,21 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export function NavBar() {
 
   return (
     /* .sticky-top will not work if it is inside any container */
+    /* For reference about 'Link': https://reactrouter.com/docs/en/v6/components/link */
     <div className="sticky-top">
       <nav classID="" className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Home</a>
+          <Link className="navbar-brand" to="/">Home</Link>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#"><button type="button" className="btn btn-light">Cart</button></a>
+              <Link className="nav-link" to="/cart"><button type="button" className="btn btn-light">Cart</button></Link>
             </li>
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#"><button type="button" className="btn btn-danger">Check Out</button></a>
+              <Link className="nav-link" to="/checkout"><button type="button" className="btn btn-danger">Check Out</button></Link>
             </li>
           </ul>
         </div>

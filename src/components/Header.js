@@ -27,7 +27,7 @@ export function NavBar(props) {
 }
 export function Header() {
   return (
-    <div className="p-5 bg-success text-white text-center">
+    <div id="Top" className="p-5 bg-success text-white text-center">
       <h1>Fruit Shopper 2000</h1>
       <p>-Färsk frukt året runt</p>
     </div>

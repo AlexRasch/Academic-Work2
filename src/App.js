@@ -3,7 +3,7 @@ import React, { useState} from "react";
 
 function ShoppingList(props) {
   //ToDo change to local storage
-  const shoppingList2 = props.list.map((x) => <li>{x}</li>);
+  const shoppingList2 = props.list.map((x) => <li key={x.id}>{x.name} {x.price}</li>);
   return <ul>{shoppingList2}</ul>;
 }
 
@@ -28,11 +28,30 @@ function Item(props) {
 function App() {
   
   const [shoppingList, setShoppingList] = useState([]);
-  function removeItem() {}
+  function removeItem(item) {
+
+    // ToDo improve logic
+    console.log("Remove: " + item.name);
+    var array = [...shoppingList]; // make a separate copy of the array
+    console.log(array, item)
+    let idToRemove = array.filter(i => i.name === item.name).slice(-1)[0].id
+    console.log(idToRemove)
+    var index = array.indexOf(array.filter(i => i.id === idToRemove)[0])
+    console.log(index)
+    if (index !== -1) {
+      array.splice(index, 1);
+      setShoppingList(array);
+    }
+
+  }
   function addItem(item) {
-console.log(item)
-    // setShoppingList
-    // console.table(event.target);
+  //ToDo improve generation of keys
+  console.log("Add: " + item);
+   setShoppingList((prevState) =>[
+    ...prevState,
+    {id: prevState.length + 1, name: item.name, price: item.price}
+    //item.name + " " + item.price
+  ]);
   }
   return (
     <div className="App">
@@ -44,6 +63,14 @@ console.log(item)
         handleAdd = {addItem}
         handleRemove = {removeItem}
       />
+    <Item
+        image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
+        name="Mango"
+        price={300}
+        handleAdd = {addItem}
+        handleRemove = {removeItem}
+      />
+
       {/* <Item
         image="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/375px-Banana-Single.jpg"
         name="banana"

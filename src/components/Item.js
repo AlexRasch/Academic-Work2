@@ -2,7 +2,8 @@ import React from "react";
 
 export function Item(props) {
   return (
-    <div className="card mb-5">
+    <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-5  mb-5">
+    <div className="card">
       <div className="card-body item">
         <img className="card-img-top mx-auto d-block" loading="lazy" src={props.image} width="100" alt=""></img>
         <h3 className="card-title">{props.name}</h3>
@@ -16,6 +17,7 @@ export function Item(props) {
           Remove item
         </button>
       </div>
+    </div>
     </div>
   );
 }

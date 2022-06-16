@@ -12,3 +12,4 @@ export function ShoppingList(props) {
   const shoppingListPrice = shoppingList2.map((x) => x.price);
   return <ul className="list-group"> <li className="list-group-item active">Shop</li>{shoppingList2} <li className="list-group-item">Pris: {TotalPrice}</li></ul>;
 }
+

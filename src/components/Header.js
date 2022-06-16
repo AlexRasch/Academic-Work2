@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export function NavBar() {
+export function NavBar(props) {
 
   return (
     /* .sticky-top will not work if it is inside any container */
@@ -12,7 +12,7 @@ export function NavBar() {
           <Link className="navbar-brand" to="/">Home</Link>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/cart"><button type="button" className="btn btn-light">Cart</button></Link>
+              <Link className="nav-link" to="/cart"><button type="button" className="btn btn-light">Cart {props.totalItems > 0 ? "(" + props.totalItems + ")" : null}</button></Link>
             </li>
           </ul>
           <ul className="navbar-nav">
@@ -29,7 +29,7 @@ export function Header() {
   return (
     <div className="p-5 bg-success text-white text-center">
       <h1>Fruit Shopper 2000</h1>
-      <p>Maecenas dignissim in dui eu imperdiet</p>
+      <p>-Färsk frukt året runt</p>
     </div>
   );
 }

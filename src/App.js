@@ -131,7 +131,7 @@ function App() {
         <div className="container-fluid">
           <Routes>
 
-             {/* Index  / Дом */}
+             {/* Index  /  */}
             <Route path="/" element={
               <div className="row">
                

@@ -5,7 +5,7 @@ export function Item(props) {
     <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mt-5  mb-5">
     <div className="card">
       <div className="card-body item">
-        <img className="card-img-top mx-auto d-block" loading="lazy" src={props.image} width="100" alt={props.name}></img>
+        <img className="card-img-top mx-auto d-block" loading="lazy" src={props.image} width="250" height="250" alt={props.name}></img>
         <h3 className="card-title">{props.name}</h3>
         <p className="card-text">
           {props.name} <b>Pris:</b> <i>{props.price}</i>

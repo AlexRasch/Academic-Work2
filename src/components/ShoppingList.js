@@ -2,7 +2,7 @@ import React from "react";
 
 export function ShoppingList(props) {
   //ToDo change to local storage
-  const shoppingList2 = props.list.map((x) => <li className="list-group-item" key={x.id}>{x.name} {x.price}</li>);
+  const shoppingList2 = props.list.map((x) => <li className="list-group-item" key={x.id}>{x.name} - {x.price}kr</li>);
   console.log(shoppingList2);
 
   // Calculate total price
@@ -11,13 +11,7 @@ export function ShoppingList(props) {
   // return shoppligst as a complete element
   const shoppingListPrice = shoppingList2.map((x) => x.price);
 
-  return (
-  <ul className="list-group"> 
-  <li className="list-group-item active">Shop</li>
-  {shoppingList2} 
-  <li className="list-group-item">Total kostnad: {TotalPrice}</li>
-  {/*TotalPrice > 0 ? "<li className='list-group-item'> Clear </li>" : null*/}
-  </ul>
-  )
+  return <ul className="list-group"> <li className="list-group-item active">Shop</li>{shoppingList2} <li className="list-group-item">Total kostnad: {TotalPrice}kr</li></ul>;
+
 }
 

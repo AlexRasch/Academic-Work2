@@ -153,7 +153,7 @@ function App() {
             <Route path="/checkout" element={
               <div className="row">
                 <div className="col-sm-12 col-md-12 mt-5 pt-5">
-                  <img className="img-fluid" src="assets/img/qr-payment.svg"></img>
+                  <img className="rounded mx-auto d-block img-fluid" src="assets/img/qr-payment.svg"></img>
                   <p>Total kostnad: {shoppingList.reduce((total, currentValue) => total = total + currentValue.price, 0)}</p>
                 </div>
               </div>

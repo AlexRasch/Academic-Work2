@@ -2,7 +2,7 @@ import React from "react";
 
 export function ShoppingList(props) {
   //ToDo change to local storage
-  const shoppingList2 = props.list.map((x) => <li className="list-group-item" key={x.id}>{x.name} {x.price}</li>);
+  const shoppingList2 = props.list.map((x) => <li className="list-group-item" key={x.id}>{x.name} - {x.price}kr</li>);
   console.log(shoppingList2);
 
   // Calculate total price

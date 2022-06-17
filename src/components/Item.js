@@ -8,7 +8,10 @@ export function Item(props) {
         <img className="card-img-top mx-auto d-block" loading="lazy" src={props.image} width="250" height="250" alt={props.name}></img>
         <h3 className="card-title">{props.name}</h3>
         <p className="card-text">
-          {props.name} <b>Pris:</b> <i>{props.price}</i>
+          {props.name} 
+        </p>
+        <p className="card-text">
+          <b>Pris:</b> <i>{props.price}</i>
         </p>
         <button type="button" className="card-link btn btn-primary addButton" onClick={() => props.handleAdd(props)}>
           Add item

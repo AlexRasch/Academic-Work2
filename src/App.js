@@ -103,8 +103,6 @@ function App() {
       return;
     }
 
-
-
     // Check if it exists
     var index = array.indexOf(array.filter(i => i.id === idToRemove)[0])
 

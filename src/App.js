@@ -54,6 +54,7 @@ function App() {
   ]);
   }
   return (
+<<<<<<< Updated upstream
     <div className="App">
       <ShoppingList list = {shoppingList} />
       <Item
@@ -87,6 +88,48 @@ function App() {
         price={30}
       /> */}
     </div>
+=======
+    <Router>
+      <div className="App">
+        <Header />
+        <NavBar  totalItems={shoppingList.length} />
+        <div className="container-fluid">
+          <Routes>
+
+             {/* Index  / Дом */}
+            <Route path="/" element={
+              <div className="row">
+               
+                  {/* Output items/fruits */}
+                  {itemsElement}
+               
+              </div>
+            }/>
+
+            {/* Cart  / Корзина покупателя */}
+            <Route path="/cart" element={
+              <div className="row">
+                <div className="col-sm-12 col-md-12 mt-5 pt-5">
+                  <ShoppingList list={shoppingList} />
+                </div>
+              </div>
+            }/>
+
+            {/* Checkout */}
+            <Route path="/checkout" element={
+              <div className="row">
+                <div className="col-sm-12 col-md-12 mt-5 pt-5">
+                  <img className="rounded mx-auto d-block img-thumbnail img-fluid" src="assets/img/qr-payment.svg"></img>
+                  <p className="text-center">Total kostnad: {shoppingList.reduce((total, currentValue) => total = total + currentValue.price, 0)}</p>
+                </div>
+              </div>
+            }/>
+          </Routes>
+          <a href="#Top"><button type="button" className="btn btn-primary mt-5 mb-2">Top</button></a>
+        </div>
+      </div>
+    </Router>
+>>>>>>> Stashed changes
   );
 }
 

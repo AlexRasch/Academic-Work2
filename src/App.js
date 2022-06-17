@@ -103,6 +103,8 @@ function App() {
       return;
     }
 
+
+
     // Check if it exists
     var index = array.indexOf(array.filter(i => i.id === idToRemove)[0])
 
@@ -154,9 +156,8 @@ function App() {
             {/* Checkout */}
             <Route path="/checkout" element={
               <div className="row">
-                <div className="col-sm-12 col-md-12 mt-5 pt-5">
-
-                  <img className="img-fluid" src="assets/img/qr-payment.svg" width="300"></img>
+                <div className="col-sm-12 col-md-12 mt-0 pt-5">
+                  <img className="rounded mx-auto d-block img-fluid" src="assets/img/qr-payment.svg" width="300"></img>
                   <p>Total kostnad: {shoppingList.reduce((total, currentValue) => total = total + currentValue.price, 0)}kr</p>
 
                 </div>

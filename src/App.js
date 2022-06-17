@@ -146,7 +146,7 @@ function App() {
               <div className="row">
                 <div className="col-sm-12 col-md-12 mt-5 pt-5">
                   <ShoppingList list={shoppingList} />
-                  <button type="button" className="btn btn-warning" onClick={ClearCart}>Clear</button>
+                  <button type="button" className="btn btn-warning mt-2 mb-2" onClick={ClearCart}>Clear</button>
                 </div>
               </div>
             }/>

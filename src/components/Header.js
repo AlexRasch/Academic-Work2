@@ -7,7 +7,7 @@ export function NavBar(props) {
     /* .sticky-top will not work if it is inside any container */
     /* For reference about 'Link': https://reactrouter.com/docs/en/v6/components/link */
     <div className="sticky-top">
-      <nav classID="" className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+      <nav id="myNav" className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Home</Link>
           <ul className="navbar-nav">
